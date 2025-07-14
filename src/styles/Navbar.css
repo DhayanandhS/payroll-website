@@ -32,6 +32,20 @@
 }
 
 
+/* USER PROFILE LOGIN */
+.nav-link-custom {
+  color: black !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #a84adb !important; /* Optional: Change to your hover color */
+  text-decoration: none;
+}
+
+
 /* REGULAR NAV LINKS */
 .nav-link {
   color: #000000 !important;

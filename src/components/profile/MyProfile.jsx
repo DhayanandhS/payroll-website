@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import profileService from '../../services/profileService';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 function MyProfile() {
   console.log('MyProfile component rendered');
@@ -10,7 +11,9 @@ function MyProfile() {
   const [employee, setEmployee] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({});
-
+  
+const { username } = useParams();
+  
   // Get username from token and match it with employee user.username
   useEffect(() => {
     console.log('Running fetchEmployeeId useEffect');

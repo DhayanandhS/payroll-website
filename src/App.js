@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 
 // Role-based dashboards
 import AdminDashboard from './pages/AdminDashboard';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile/:username" element={<MyProfile />} />
 
         {/* Role-based dashboard routes */}
         <Route
@@ -64,7 +66,10 @@ function App() {
         <Route path="/submit-timesheet" element={<SubmitTimesheet />} />
         <Route path="/notifications" element={<Notifications />} />
 
-        <Route path="/manager_supervisor-dashboard" element={<ManagerDashboard />} />
+        <Route
+          path="/manager_supervisor-dashboard"
+          element={<ManagerDashboard />}
+        />
         <Route path="/manage-leaves" element={<ManageLeaveRequests />} />
         <Route path="/manage-timesheets" element={<ManageTimesheets />} />
       </Routes>

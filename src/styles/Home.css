@@ -1,14 +1,14 @@
 /* Layout base */
 .home-wrapper {
   position: relative;
-  padding: 60px 60px 40px 60px !important;
+  padding: 60px 40px 60px 70px !important;
   margin: 40px 30px 60px 30px !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 100px);
   overflow: hidden;
   z-index: 0;
 }

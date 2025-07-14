@@ -42,7 +42,10 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
           <ul className="navbar-nav align-items-center gap-3">
             {!token ? (
               <>
@@ -60,15 +63,23 @@ function Navbar() {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link nav-link-custom" to={`/${role?.toLowerCase()}-dashboard`}>
+                  <Link
+                    className="nav-link nav-link-custom"
+                    to={`/${role?.toLowerCase()}-dashboard`}
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li className="nav-item welcome-text">
-                  <strong>{username}</strong>
+                  <Link to={`/profile/${username}`} className="nav-profile-link nav-link-custom">
+                    <strong>{username}</strong>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link nav-button" onClick={handleLogout}>
+                  <button
+                    className="nav-link nav-button"
+                    onClick={handleLogout}
+                  >
                     Logout
                   </button>
                 </li>
