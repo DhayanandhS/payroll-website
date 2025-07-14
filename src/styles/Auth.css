@@ -1,0 +1,70 @@
+.auth-container {
+  display: flex;
+  max-width: 1000px;
+  height: 600px;
+  margin: 40px auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Left Side Image */
+.auth-image {
+  flex: 1;
+  background-image: url('../public/reg-log.jpg'); /* Make sure it's in /public */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.auth-image:hover {
+  transform: scale(1.05);
+}
+
+/* Right Side Form */
+.auth-form {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.auth-form h2{
+    font-family: 'Georgia', serif;
+    margin-bottom: 40px;
+}
+
+/* Label Spacing */
+.form-label {
+  padding-left: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input glow on hover */
+.styled-input {
+  transition: box-shadow 0.3s ease;
+}
+
+.styled-input:hover,
+.styled-input:focus {
+  box-shadow: 0 0 6px rgba(55, 55, 55, 0.5);
+  border-color: #212121;
+}
+
+/* Styled Button */
+.styled-btn {
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-btn:hover {
+  background-color: #343434cb;
+  box-shadow: 0 5px 15px rgba(186, 186, 186, 0.3);
+}

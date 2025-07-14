@@ -1,0 +1,147 @@
+.footer {
+  background: linear-gradient(to right, #1d102f, #2d1149);
+  color: white;
+  padding: 60px 60px 40px 60px !important;
+  margin: 40px 30px 60px 30px !important;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 30px;
+}
+.home-wrapper {
+  position: relative;
+  padding: 60px 60px 40px 60px !important;
+  margin: 40px 30px 60px 30px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  min-height: calc(100vh - 120px);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #a84adb, #6e3dff);
+  padding: 10px 14px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-family: Georgia, serif;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.social-icons i {
+  margin-right: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.social-icons i:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #ffdaff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.footer-col li svg {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.contact-col p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subscribe-box {
+  display: flex;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  width: 70%;
+}
+
+.subscribe-box button {
+  background: linear-gradient(135deg, #a84adb, #6e3dff);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 30px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  margin: 0 10px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #ffdaff;
+}

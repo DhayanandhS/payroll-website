@@ -1,0 +1,140 @@
+/* NAVBAR WRAPPER */
+.custom-navbar {
+  position: sticky;
+  top: 20px;
+  z-index: 1050;
+  margin: 0 30px;
+  font-family: 'Georgia', serif;
+  padding: 12px 30px;
+  border-radius: 50px;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* BRANDING */
+.logo-emoji {
+  font-size: 1.5rem;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-family: 'Georgia', serif;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.brand-text:hover {
+  color: #a84adb;
+}
+
+
+/* REGULAR NAV LINKS */
+.nav-link {
+  color: #000000 !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  padding-bottom: 4px;
+}
+
+/* Hover underline animation for nav links (Dashboard) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #7A1CAC, #ad49e1);
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0%;
+}
+
+.nav-link:hover {
+  color: #7A1CAC !important;
+}
+
+.welcome-text {
+  position: relative;
+  display: inline-block;
+  color: #000000;
+  font-weight: 500;
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+/* Minimal glowing underline effect on hover */
+.welcome-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  /* height: 1px; */
+  background: #a84adb;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.welcome-text:hover::after {
+  width: 100%;
+}
+
+/* Optional subtle border highlight */
+.welcome-text:hover {
+  box-shadow: 0 0 0 1px rgba(168, 74, 219, 0.4);
+  border-radius: 16px;
+}
+
+
+
+/* AUTH BUTTONS - Login/Register/Logout */
+.nav-button {
+  background: rgba(0, 0, 0, 0.6);
+  color: white !important;
+  padding: 10px 48px !important; /* Wider buttons */
+  border-radius: 16px; /* Less rounded */
+  border: none;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 0.95rem;
+}
+
+/* Loading highlight animation for buttons */
+.nav-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(to right, #7A1CAC, #AD49E1);
+  transition: width 0.4s ease-in-out;
+}
+
+.nav-button:hover::before {
+  width: 100%;
+}
+
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(122, 28, 172, 0.4);
+}
