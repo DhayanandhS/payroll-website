@@ -100,3 +100,32 @@
   font-size: 1.6rem;
   margin-bottom: 0.6rem;
 }
+
+
+/* CHART FOR SUPERADMIN DASHBOARD */
+
+.chart-container {
+  background: linear-gradient(135deg, #1f2b50, #3c2b70);
+  margin: 40px 30px 60px 30px !important;
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  max-width: 900px;
+  transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: scale(1.02);
+}
+
+.chart-heading {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  color: #f8f8f8;
+}
+
