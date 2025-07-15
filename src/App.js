@@ -58,6 +58,8 @@ function App() {
         {/* manage users, employees */}
         <Route path="/manage-users" element={<ManageUsers />} />
         <Route path="/manage-employees" element={<ManageEmployees />} />
+        
+
         <Route path="/policies" element={<ManagePolicies />} />
         <Route path="/audit-logs" element={<ManageAuditLogs />} />
 

@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from "react";
-import employeeService from "../services/employeeService";
-import { toast } from "react-toastify";
-
-
+import React, { useEffect, useState } from 'react';
+import employeeService from '../services/employeeService';
+import { toast } from 'react-toastify';
+import '../styles/ManageEmployees.css';
 
 function ManageEmployees() {
   const [employees, setEmployees] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [newEmp, setNewEmp] = useState({
-    userId: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    department: "",
-    hireDate: "",
-    dob: "",
-    designation: "",
-    status: "ACTIVE",
-    managerId: ""
+    userId: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    department: '',
+    hireDate: '',
+    dob: '',
+    designation: '',
+    status: 'ACTIVE',
+    managerId: '',
   });
+
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredUsers = employees.filter((emp) =>
+    `${emp.firstName} ${emp.lastName} ${emp.email} ${emp.department} ${emp.managerId}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     fetchEmployees();
@@ -30,7 +37,7 @@ function ManageEmployees() {
       const res = await employeeService.getAllEmployees();
       setEmployees(res.data);
     } catch (err) {
-      console.error("Failed to fetch employees:", err);
+      console.error('Failed to fetch employees:', err);
     }
   };
 
@@ -54,7 +61,7 @@ function ManageEmployees() {
       dob: employee.dob,
       designation: employee.designation,
       status: employee.status,
-      managerId: employee.managerId || ""
+      managerId: employee.managerId || '',
     });
     setEditingId(employee.employeeId);
   };
@@ -64,49 +71,212 @@ function ManageEmployees() {
     try {
       if (editingId) {
         await employeeService.updateEmployee(editingId, newEmp);
-        toast.success("User created successfully!");
+        toast.success('User created successfully!');
       } else {
         await employeeService.createEmployee(newEmp);
-        toast.error("Error creating user.");
+        toast.error('Error creating user.');
       }
 
       setNewEmp({
-        userId: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        department: "",
-        hireDate: "",
-        dob: "",
-        designation: "",
-        status: "ACTIVE",
-        managerId: ""
+        userId: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        department: '',
+        hireDate: '',
+        dob: '',
+        designation: '',
+        status: 'ACTIVE',
+        managerId: '',
       });
       setEditingId(null);
       fetchEmployees();
     } catch (err) {
-      console.error("Failed to save employee:", err);
-      alert(editingId ? "Failed to update employee." : "Failed to create employee.");
+      console.error('Failed to save employee:', err);
+      alert(
+        editingId ? 'Failed to update employee.' : 'Failed to create employee.'
+      );
     }
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this employee?")) return;
+    if (!window.confirm('Are you sure you want to delete this employee?'))
+      return;
     try {
       await employeeService.deleteEmployee(id);
       fetchEmployees();
     } catch (err) {
-      console.error("Delete failed:", err);
+      console.error('Delete failed:', err);
     }
   };
 
   return (
-    <div className="container mt-4">
-      <h3>Manage Employees</h3>
+    <div className="manage-employees-container">
+      
+
+      {/* Create / Edit Form */}
+      <div className="card mt-5 p-4 shadow manage-employee-form-bg">
+        <h4 className="employee-db-form-title">
+          {editingId ? 'Edit Employee' : 'Create New Employee'}
+        </h4>
+        <div className="employee-form-card">
+          <form className="employee-form" onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-md-6 mb-3">
+                <label>User ID</label>
+                <input
+                  type="number"
+                  name="userId"
+                  className="form-control"
+                  value={newEmp.userId}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>First Name</label>
+                <input
+                  name="firstName"
+                  className="form-control"
+                  value={newEmp.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Last Name</label>
+                <input
+                  name="lastName"
+                  className="form-control"
+                  value={newEmp.lastName}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  value={newEmp.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Phone</label>
+                <input
+                  name="phone"
+                  className="form-control"
+                  value={newEmp.phone}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Department</label>
+                <input
+                  name="department"
+                  className="form-control"
+                  value={newEmp.department}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Hire Date</label>
+                <input
+                  type="date"
+                  name="hireDate"
+                  className="form-control"
+                  value={newEmp.hireDate}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Date of Birth</label>
+                <input
+                  type="date"
+                  name="dob"
+                  className="form-control"
+                  value={newEmp.dob}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Designation</label>
+                <input
+                  name="designation"
+                  className="form-control"
+                  value={newEmp.designation}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Status</label>
+                <select
+                  name="status"
+                  className="form-select"
+                  value={newEmp.status}
+                  onChange={handleChange}
+                >
+                  <option value="ACTIVE">ACTIVE</option>
+                  <option value="INACTIVE">INACTIVE</option>
+                </select>
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Manager ID (Optional)</label>
+                <input
+                  name="managerId"
+                  className="form-control"
+                  value={newEmp.managerId}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="btn btn-success">
+              {editingId ? 'Update Employee' : 'Create Employee'}
+            </button>
+
+            {editingId && (
+              <button
+                type="button"
+                className="action-btn edit-btn"
+                onClick={() => {
+                  setEditingId(null);
+                  setNewEmp({
+                    userId: '',
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    department: '',
+                    hireDate: '',
+                    dob: '',
+                    designation: '',
+                    status: 'ACTIVE',
+                    managerId: '',
+                  });
+                }}
+              >
+                Cancel Edit
+              </button>
+            )}
+          </form>
+        </div>
+      </div>
+      <h3 className='text-black'>Filter Employees</h3>
+      <div className="employee-user-filter">
+        <input
+          type="text"
+          placeholder="Search by name, email, department or manager ID"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       {/* Employees Table */}
-      <table className="table table-bordered mt-4">
+      <table className="employee-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -123,10 +293,12 @@ function ManageEmployees() {
           </tr>
         </thead>
         <tbody>
-          {employees.map((emp) => (
+          {filteredUsers.map((emp) => (
             <tr key={emp.employeeId}>
               <td>{emp.employeeId}</td>
-              <td>{emp.firstName} {emp.lastName}</td>
+              <td>
+                {emp.firstName} {emp.lastName}
+              </td>
               <td>{emp.email}</td>
               <td>{emp.department}</td>
               <td>{emp.designation}</td>
@@ -136,10 +308,16 @@ function ManageEmployees() {
               <td>{emp.hireDate}</td>
               <td>{emp.managerId}</td>
               <td>
-                <button className="btn btn-sm btn-warning me-2" onClick={() => handleEdit(emp)}>
+                <button
+                  className="action-btn edit-btn"
+                  onClick={() => handleEdit(emp)}
+                >
                   Edit
                 </button>
-                <button className="btn btn-sm btn-danger" onClick={() => handleDelete(emp.employeeId)}>
+                <button
+                  className="action-btn delete-btn"
+                  onClick={() => handleDelete(emp.employeeId)}
+                >
                   Delete
                 </button>
               </td>
@@ -147,91 +325,6 @@ function ManageEmployees() {
           ))}
         </tbody>
       </table>
-
-      {/* Create / Edit Form */}
-      <div className="card mt-5 p-4 shadow">
-        <h4>{editingId ? "Edit Employee" : "Create New Employee"}</h4>
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-md-6 mb-3">
-              <label>User ID</label>
-              <input type="number" name="userId" className="form-control" value={newEmp.userId} onChange={handleChange} required />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>First Name</label>
-              <input name="firstName" className="form-control" value={newEmp.firstName} onChange={handleChange} required />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Last Name</label>
-              <input name="lastName" className="form-control" value={newEmp.lastName} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Email</label>
-              <input type="email" name="email" className="form-control" value={newEmp.email} onChange={handleChange} required />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Phone</label>
-              <input name="phone" className="form-control" value={newEmp.phone} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Department</label>
-              <input name="department" className="form-control" value={newEmp.department} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Hire Date</label>
-              <input type="date" name="hireDate" className="form-control" value={newEmp.hireDate} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Date of Birth</label>
-              <input type="date" name="dob" className="form-control" value={newEmp.dob} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Designation</label>
-              <input name="designation" className="form-control" value={newEmp.designation} onChange={handleChange} />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Status</label>
-              <select name="status" className="form-select" value={newEmp.status} onChange={handleChange}>
-                <option value="ACTIVE">ACTIVE</option>
-                <option value="INACTIVE">INACTIVE</option>
-              </select>
-            </div>
-            <div className="col-md-6 mb-3">
-              <label>Manager ID (Optional)</label>
-              <input name="managerId" className="form-control" value={newEmp.managerId} onChange={handleChange} />
-            </div>
-          </div>
-
-          <button type="submit" className="btn btn-success">
-            {editingId ? "Update Employee" : "Create Employee"}
-          </button>
-
-          {editingId && (
-            <button
-              type="button"
-              className="btn btn-secondary ms-2"
-              onClick={() => {
-                setEditingId(null);
-                setNewEmp({
-                  userId: "",
-                  firstName: "",
-                  lastName: "",
-                  email: "",
-                  phone: "",
-                  department: "",
-                  hireDate: "",
-                  dob: "",
-                  designation: "",
-                  status: "ACTIVE",
-                  managerId: ""
-                });
-              }}
-            >
-              Cancel Edit
-            </button>
-          )}
-        </form>
-      </div>
     </div>
   );
 }

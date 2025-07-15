@@ -1,0 +1,241 @@
+.user-management-wrapper {
+  padding: 60px 40px 60px 70px !important;
+  margin: 40px 30px 60px 30px !important;
+  margin: 50px auto;
+  
+  border-radius: 20px;
+  background-image:
+    linear-gradient(rgba(183, 97, 207, 0.277), rgba(177, 68, 173, 0.26)),
+    url('../public/manageusers-bg.jpg'); /* ✅ Change to the correct relative path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(39, 38, 38);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Table Styling */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+
+.minimal-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.minimal-table th,
+.minimal-table td {
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.minimal-table th {
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: bold;
+}
+
+.minimal-table tr {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.minimal-table tr:hover {
+  background: rgba(169, 195, 210, 0.829);
+  transform: scale(1.01); /* Slight scale-up */
+  cursor: pointer;
+}
+
+/* Actions */
+.action-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.action-btn.edit {
+  color: #ffc107;
+}
+.action-btn.delete {
+  color: #dc3545;
+}
+
+/* Two-column layout */
+.user-form-card.two-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Left column: form */
+.form-column {
+  flex: 1 1 350px;
+  color: white;
+}
+
+/* Right column: image background */
+.image-column.image-background {
+  flex: 1 1 300px;
+  min-height: 300px;
+  border-radius: 12px;
+  background-image: url('../public/auth.jpg'); /* use from /public folder */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.image-column.image-background:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.095);
+}
+
+/* Heading */
+.user-form-card h3 {
+  margin-bottom: 25px;
+  font-size: 1.4rem;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #181c2f;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #6a91b642;
+  color: rgb(41, 41, 41);
+  font-size: 0.95rem;
+}
+
+/* Password visibility toggle */
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Info note */
+.note {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Form action buttons */
+.form-actions {
+  margin-top: 20px;
+}
+
+.submit-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 0.95rem;
+}
+
+.submit-btn {
+  background-color: #1f8ef1;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+
+
+
+
+.user-filter {
+  margin-left: 45px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.user-filter input {
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: none;
+  background: #181c2f;
+  color: white;
+  font-size: 0.95rem;
+  width: 380px;
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.user-filter input:focus {
+  outline: none;
+
+}
+
+.employee-user-filter {
+  margin-left: 10px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.employee-user-filter input {
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: none;
+  background: #181c2f;
+  color: white;
+  font-size: 0.95rem;
+  width: 380px;
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.employee-user-filter input:focus {
+  outline: none;
+
+}

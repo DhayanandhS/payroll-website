@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import userService from '../services/userService';
 import { toast } from 'react-toastify';
+import '../styles/ManageUsers.css';
 
 function ManageUsers() {
   const [users, setUsers] = useState([]);
@@ -12,6 +13,13 @@ function ManageUsers() {
     password: '',
     role: 'EMPLOYEE',
   });
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredUsers = users.filter((u) =>
+    `${u.userName} ${u.email} ${u.role}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     fetchUsers();
@@ -50,7 +58,7 @@ function ManageUsers() {
     }
   };
 
-  const handleEdit = (user) => {                       
+  const handleEdit = (user) => {
     setNewUser({
       userName: user.userName,
       email: user.email,
@@ -88,145 +96,158 @@ function ManageUsers() {
   };
 
   return (
-    <div className="container mt-4">
-      <h3>Manage Users</h3>
-
-      {/* Table */}
-      <table className="table table-bordered mt-4">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u.userId}>
-              <td>{u.userId}</td>
-              <td>{u.userName}</td>
-              <td>{u.email}</td>
-              <td>{u.role}</td>
-              <td>
-                {u.role !== 'SUPER_ADMIN' ? (
-                  <>
-                    <button
-                      className="btn btn-sm btn-warning me-2"
-                      onClick={() => handleEdit(u)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-sm btn-danger"
-                      onClick={() => handleDelete(u.userId)}
-                    >
-                      Delete
-                    </button>
-                  </>
-                ) : (
-                  <span className="text-muted">Protected</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+    <div className="user-management-wrapper">
+      <h2 className="section-title">👥 Manage Users</h2>
+      <div className="user-filter">
+        <input
+          type="text"
+          placeholder="Search by username or email or role"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+      <br />
       {/* Form */}
-      <div className="card mt-5 p-4 shadow">
-        <h4>{editingId ? 'Edit User' : 'Create New User'}</h4>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label>Username</label>
-            <input
-              name="userName"
-              type="text"
-              className="form-control"
-              value={newUser.userName}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label>Email</label>
-            <input
-              name="email"
-              type="email"
-              className="form-control"
-              value={newUser.email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label>
-              Password{' '}
-              {editingId && (
-                <span className="text-muted">
-                  (Leave empty to keep unchanged)
-                </span>
-              )}
-            </label>
-            <div className="input-group">
+      <div className="user-form-card two-column">
+        {/* Left: Form */}
+        <div className="form-column">
+          <h3>{editingId ? '✏️ Edit User' : '➕ Create New User'}</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Username</label>
               <input
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                className="form-control"
-                value={newUser.password}
+                name="userName"
+                type="text"
+                value={newUser.userName}
                 onChange={handleInputChange}
-                required={!editingId}
+                required
               />
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                onClick={() => setShowPassword((prev) => !prev)}
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button>
             </div>
-          </div>
 
-          <div className="mb-3">
-            <label>Role</label>
-            <select
-              name="role"
-              className="form-select"
-              value={newUser.role}
-              onChange={handleInputChange}
-            >
-              <option value="ADMIN_HR">ADMIN_HR</option>
-              <option value="EMPLOYEE">EMPLOYEE</option>
-              <option value="PAYROLL_PROCESSOR">PAYROLL_PROCESSOR</option>
-              <option value="MANAGER_SUPERVISOR">MANAGER_SUPERVISOR</option>
-            </select>
-          </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                name="email"
+                type="email"
+                value={newUser.email}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-          <button type="submit" className="btn btn-success">
-            {editingId ? 'Update User' : 'Create User'}
-          </button>
+            <div className="form-group">
+              <label>
+                Password{' '}
+                {editingId && (
+                  <span className="note">(Leave empty to keep unchanged)</span>
+                )}
+              </label>
+              <div className="password-wrapper">
+                <input
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={newUser.password}
+                  onChange={handleInputChange}
+                  required={!editingId}
+                />
+                <button
+                  type="button"
+                  className="toggle-password"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? '🙈' : '👁️'}
+                </button>
+              </div>
+            </div>
 
-          {editingId && (
-            <button
-              type="button"
-              className="btn btn-secondary ms-2"
-              onClick={() => {
-                setEditingId(null);
-                setNewUser({
-                  userName: '',
-                  email: '',
-                  password: '',
-                  role: 'EMPLOYEE',
-                });
-              }}
-            >
-              Cancel Edit
-            </button>
-          )}
-        </form>
+            <div className="form-group">
+              <label>Role</label>
+              <select
+                name="role"
+                value={newUser.role}
+                onChange={handleInputChange}
+              >
+                <option value="ADMIN_HR">ADMIN_HR</option>
+                <option value="EMPLOYEE">EMPLOYEE</option>
+                <option value="PAYROLL_PROCESSOR">PAYROLL_PROCESSOR</option>
+                <option value="MANAGER_SUPERVISOR">MANAGER_SUPERVISOR</option>
+              </select>
+            </div>
+
+            <div className="form-actions">
+              <button type="submit" className="submit-btn">
+                {editingId ? 'Update' : 'Create'}
+              </button>
+              {editingId && (
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={() => {
+                    setEditingId(null);
+                    setNewUser({
+                      userName: '',
+                      email: '',
+                      password: '',
+                      role: 'EMPLOYEE',
+                    });
+                  }}
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+
+        {/* Right: Image */}
+        <div className="image-column image-background" />
+      </div>
+
+      <br />
+      <br />
+      {/* Table */}
+      <div className="table-wrapper">
+        <table className="minimal-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredUsers.map((u) => (
+              <tr key={u.userId}>
+                <td>{u.userId}</td>
+                <td>{u.userName}</td>
+                <td>{u.email}</td>
+                <td>{u.role}</td>
+                <td>
+                  {u.role !== 'SUPER_ADMIN' ? (
+                    <>
+                      <button
+                        className="action-btn edit"
+                        onClick={() => handleEdit(u)}
+                      >
+                        ✏️
+                      </button>
+                      <button
+                        className="action-btn delete"
+                        onClick={() => handleDelete(u.userId)}
+                      >
+                        🗑️
+                      </button>
+                    </>
+                  ) : (
+                    <span className="text-muted">Protected</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

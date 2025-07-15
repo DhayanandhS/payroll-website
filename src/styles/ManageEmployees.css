@@ -1,0 +1,170 @@
+/* Overall Page Wrapper */
+.manage-employees-container {
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Section Heading */
+.manage-employees-container h3 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #ffffffcc;
+}
+
+.manage-employee-form-bg {
+  background-image: linear-gradient(
+      rgba(133, 133, 133, 0.277),
+      rgba(205, 205, 205, 0.26)
+    ),
+    url('../public/employee-dashboard-form.jpg'); /* ✅ Change to the correct relative path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0%;
+  margin-bottom: 50px !important;
+}
+
+/* Table Styling */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-image: linear-gradient(
+      rgba(133, 133, 133, 0.277),
+      rgba(205, 205, 205, 0.26)
+    ),
+    url('../public/employee-dashboard-table.jpg'); /* ✅ Change to the correct relative path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.employee-db-form-title{
+    margin-left: 30px;
+    color: #eeeeee;
+}
+
+.employee-table th,
+.employee-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.employee-table th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cce7ff;
+}
+
+.employee-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease;
+}
+
+.employee-table tbody tr:hover {
+  background-color: rgba(173, 216, 230, 0.1);
+}
+
+/* Action Buttons */
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+.edit-btn {
+  background-color: #572da4a2;
+  color: #b4b4b4;
+}
+
+.delete-btn {
+  background-color: #d71528b9;
+  color: #fff;
+}
+
+/* Form Card */
+.employee-form-card {
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.employee-form-card h4 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #f0f0f0;
+}
+
+/* Form Layout */
+.employee-form .form-group {
+  margin-bottom: 18px;
+}
+
+.employee-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #eeeeee;
+  font-size: 0.9rem;
+}
+
+.employee-form input,
+.employee-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  background: #ffffff13;
+  color: #fff;
+}
+
+.employee-form input:focus,
+.employee-form select:focus {
+  outline: none;
+  border: 1px solid #6aa5f7;
+  background: #ffffff1f;
+}
+
+/* Submit Buttons */
+.employee-form button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
+}
+
+.employee-form .btn-success {
+  background-color: #2e0b44;
+  color: white;
+}
+
+.employee-form .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.employee-form button:hover {
+  transform: translateY(-2px);
+}
