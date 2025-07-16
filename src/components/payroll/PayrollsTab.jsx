@@ -47,8 +47,16 @@ function PayrollsTab() {
         toast.success('Payroll added');
       }
       setFormData({
-        employeeId: '', month: '', year: '', baseSalary: '', benefits: '', tax: '',
-        netPay: '', generatedOn: '', policyId: '', timeSheetId: ''
+        employeeId: '',
+        month: '',
+        year: '',
+        baseSalary: '',
+        benefits: '',
+        tax: '',
+        netPay: '',
+        generatedOn: '',
+        policyId: '',
+        timeSheetId: '',
       });
       setEditingId(null);
       fetchPayrolls();
@@ -92,21 +100,44 @@ function PayrollsTab() {
         </div>
       </form>
 
-      <table className="table table-bordered">
+      <table className="employee-table">
         <thead>
           <tr>
-            <th>Employee ID</th><th>Month</th><th>Year</th><th>Salary</th>
-            <th>Benefits</th><th>Tax</th><th>Net Pay</th><th>Date</th><th>Actions</th>
+            <th>Employee ID</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Salary</th>
+            <th>Benefits</th>
+            <th>Tax</th>
+            <th>Net Pay</th>
+            <th>Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {payrolls.map((p) => (
             <tr key={p.payrollId}>
-              <td>{p.employeeId}</td><td>{p.month}</td><td>{p.year}</td><td>{p.baseSalary}</td>
-              <td>{p.benefits}</td><td>{p.tax}</td><td>{p.netPay}</td><td>{p.generatedOn}</td>
+              <td>{p.employeeId}</td>
+              <td>{p.month}</td>
+              <td>{p.year}</td>
+              <td>{p.baseSalary}</td>
+              <td>{p.benefits}</td>
+              <td>{p.tax}</td>
+              <td>{p.netPay}</td>
+              <td>{p.generatedOn}</td>
               <td>
-                <button className="btn btn-sm btn-warning me-2" onClick={() => handleEdit(p)}>Edit</button>
-                <button className="btn btn-sm btn-danger" onClick={() => handleDelete(p.payrollId)}>Delete</button>
+                <button
+                  className="btn btn-sm btn-warning me-2"
+                  onClick={() => handleEdit(p)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="btn btn-sm btn-danger"
+                  onClick={() => handleDelete(p.payrollId)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

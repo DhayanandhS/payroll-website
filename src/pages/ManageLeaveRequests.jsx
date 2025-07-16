@@ -41,9 +41,9 @@ const ManageLeaveRequests = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h3>📝 Leave Requests</h3>
-      <table className="table table-bordered mt-3">
+    <div className="manage-employees-container">
+      <h3 className='text-black'>📝 Leave Requests</h3>
+      <table className="employee-table">
         <thead>
           <tr>
             <th>Employee</th>

@@ -21,8 +21,8 @@ const PayrollProcessorDashboard = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Payroll Processor Dashboard</h2>
+    <div className="manage-employees-container ">
+      <h2 className="mb-4 text-black">Payroll Processor Dashboard</h2>
 
       <div className="btn-group mb-4" role="group">
         <button

@@ -1,15 +1,15 @@
 // src/pages/ManageAuditLogs.jsx
-import React, { useEffect, useState } from "react";
-import auditService from "../services/auditService";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import auditService from '../services/auditService';
+import { toast } from 'react-toastify';
 
 function ManageAuditLogs() {
   const [logs, setLogs] = useState([]);
   const [newLog, setNewLog] = useState({
-    userId: "",
-    action: "",
-    timestamp: "",
-    details: "",
+    userId: '',
+    action: '',
+    timestamp: '',
+    details: '',
   });
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function ManageAuditLogs() {
       const res = await auditService.getAllLogs();
       setLogs(res.data);
     } catch {
-      toast.error("Failed to fetch audit logs.");
+      toast.error('Failed to fetch audit logs.');
     }
   };
 
@@ -37,20 +37,76 @@ function ManageAuditLogs() {
     e.preventDefault();
     try {
       await auditService.createLog(newLog);
-      toast.success("Log created successfully!");
-      setNewLog({ userId: "", action: "", timestamp: "", details: "" });
+      toast.success('Log created successfully!');
+      setNewLog({ userId: '', action: '', timestamp: '', details: '' });
       fetchLogs();
     } catch {
-      toast.error("Log creation failed.");
+      toast.error('Log creation failed.');
     }
   };
 
   return (
-    <div className="container mt-4">
-      <h3>Audit Logs</h3>
+    <div className="manage-employees-container">
+      {/* 🧪 Optional Form (for admin testing) */}
+      <div className="card mt-5 p-4 shadow manage-employee-form-bg">
+        <h4 className="text-white">Create Audit Log (Admin Only)</h4>
+        <form className="employee-form" onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-md-4 mb-3">
+              <label>User ID</label>
+              <input
+                name="userId"
+                type="number"
+                className="form-control"
+                value={newLog.userId}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4 mb-3">
+              <label>Action</label>
+              <input
+                name="action"
+                className="form-control"
+                value={newLog.action}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-4 mb-3">
+              <label>Timestamp</label>
+              <input
+                name="timestamp"
+                type="datetime-local"
+                className="form-control"
+                value={newLog.timestamp}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-12 mb-3">
+              <label>Details</label>
+              <textarea
+                name="details"
+                className="form-control"
+                rows="3"
+                value={newLog.details}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" className="btn btn-primary">
+            Create Log
+          </button>
+        </form>
+      </div>
+
+      <h3 className="text-black">Audit Logs</h3>
 
       {/* 🧾 Audit Log Table */}
-      <table className="table table-bordered mt-4">
+      <table className="employee-table">
         <thead>
           <tr>
             <th>Log ID</th>
@@ -74,33 +130,6 @@ function ManageAuditLogs() {
           ))}
         </tbody>
       </table>
-
-      {/* 🧪 Optional Form (for admin testing) */}
-      <div className="card mt-5 p-4 shadow">
-        <h4>Create Audit Log (Admin Only)</h4>
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-md-4 mb-3">
-              <label>User ID</label>
-              <input name="userId" type="number" className="form-control" value={newLog.userId} onChange={handleChange} required />
-            </div>
-            <div className="col-md-4 mb-3">
-              <label>Action</label>
-              <input name="action" className="form-control" value={newLog.action} onChange={handleChange} required />
-            </div>
-            <div className="col-md-4 mb-3">
-              <label>Timestamp</label>
-              <input name="timestamp" type="datetime-local" className="form-control" value={newLog.timestamp} onChange={handleChange} required />
-            </div>
-            <div className="col-12 mb-3">
-              <label>Details</label>
-              <textarea name="details" className="form-control" rows="3" value={newLog.details} onChange={handleChange} required />
-            </div>
-          </div>
-
-          <button type="submit" className="btn btn-primary">Create Log</button>
-        </form>
-      </div>
     </div>
   );
 }

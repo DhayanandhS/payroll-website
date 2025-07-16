@@ -50,6 +50,21 @@ function Navbar() {
             {!token ? (
               <>
                 <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/integrations">
+                    Integrations
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/services">
+                    Services
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/support">
+                    Support
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link nav-button" to="/register">
                     Register
                   </Link>
@@ -63,6 +78,21 @@ function Navbar() {
             ) : (
               <>
                 <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/integrations">
+                    Integrations
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/services">
+                    Services
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link nav-link-custom" to="/support">
+                    Support
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link
                     className="nav-link nav-link-custom"
                     to={`/${role?.toLowerCase()}-dashboard`}
@@ -71,7 +101,10 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item welcome-text">
-                  <Link to={`/profile/${username}`} className="nav-profile-link nav-link-custom">
+                  <Link
+                    to={`/profile/${username}`}
+                    className="nav-profile-link nav-link-custom"
+                  >
                     <strong>{username}</strong>
                   </Link>
                 </li>
@@ -91,5 +124,7 @@ function Navbar() {
     </nav>
   );
 }
+
+
 
 export default Navbar;

@@ -38,9 +38,9 @@ const ManageTimesheets = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h3>⏱️ Timesheet Management</h3>
-      <table className="table table-bordered mt-3">
+    <div className="manage-employees-container">
+      <h3 className='text-black'>⏱️ Timesheet Management</h3>
+      <table className="employee-table">
         <thead>
           <tr>
             <th>Employee ID</th>

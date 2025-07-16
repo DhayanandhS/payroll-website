@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import '../styles/Home.css';
 import CountUp from 'react-countup';

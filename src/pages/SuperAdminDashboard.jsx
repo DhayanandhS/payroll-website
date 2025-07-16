@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import DashboardNetPay from '../components/dashboard/DashboardNetPay';
 import { Link, Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';

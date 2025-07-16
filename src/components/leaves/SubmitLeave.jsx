@@ -109,7 +109,7 @@ function SubmitLeave() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="manage-employees-container">
       <h3>Leave Request</h3>
       <form onSubmit={handleSubmit} className="card p-4 shadow mb-5">
         <div className="row">

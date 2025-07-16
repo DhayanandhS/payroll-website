@@ -1,11 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Profile from './pages/Profile';
+import Services from './pages/Services';
+import SupportPage from './components/support/SupportPage';
+import IntegrationsPage from './components/integrations/IntegrationsPage';
+
+
 
 // Role-based dashboards
 import AdminDashboard from './pages/AdminDashboard';
@@ -41,6 +46,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile/:username" element={<MyProfile />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/support" element={<SupportPage />} /> 
+        <Route path="/integrations" element={<IntegrationsPage />} />
 
         {/* Role-based dashboard routes */}
         <Route

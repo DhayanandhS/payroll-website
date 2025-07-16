@@ -55,7 +55,7 @@ const TimesheetsTab = () => {
 
   return (
     <div>
-      <h5 className="mb-3">Process Timesheets</h5>
+      <h5 className="mb-3 text-black">Process Timesheets</h5>
 
       {editingId && (
         <form onSubmit={handleUpdate} className="row g-2 mb-4">
@@ -103,14 +103,22 @@ const TimesheetsTab = () => {
             </select>
           </div>
           <div className="col-md-4">
-            <button type="submit" className="btn btn-success me-2">Update</button>
-            <button type="button" className="btn btn-secondary" onClick={() => setEditingId(null)}>Cancel</button>
+            <button type="submit" className="btn btn-success me-2">
+              Update
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setEditingId(null)}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       )}
 
       <div className="table-responsive">
-        <table className="table table-bordered table-hover">
+        <table className="employee-table">
           <thead>
             <tr>
               <th>Timesheet ID</th>
@@ -140,7 +148,11 @@ const TimesheetsTab = () => {
               </tr>
             ))}
             {timesheets.length === 0 && (
-              <tr><td colSpan="6" className="text-center">No timesheets available.</td></tr>
+              <tr>
+                <td colSpan="6" className="text-center">
+                  No timesheets available.
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

@@ -113,8 +113,6 @@ function ManageEmployees() {
 
   return (
     <div className="manage-employees-container">
-      
-
       {/* Create / Edit Form */}
       <div className="card mt-5 p-4 shadow manage-employee-form-bg">
         <h4 className="employee-db-form-title">
@@ -265,7 +263,7 @@ function ManageEmployees() {
           </form>
         </div>
       </div>
-      <h3 className='text-black'>Filter Employees</h3>
+      <h3 className="text-black">Filter Employees</h3>
       <div className="employee-user-filter">
         <input
           type="text"

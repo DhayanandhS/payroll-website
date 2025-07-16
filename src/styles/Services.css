@@ -1,0 +1,78 @@
+.services-container {
+  display: flex;
+  padding: 60px 40px 60px 70px !important;
+  margin: 40px 30px 60px 30px !important;
+  gap: 60px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-radius: 30px;
+}
+
+.text-purple {
+  color: #6f42c1; /* Bootstrap purple shade */
+}
+
+.services-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.services-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.feature-label {
+  color: #e64511;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.services-img {
+  width: 100%;
+  margin-top: 30px;
+}
+
+img.transparent-bg {
+  mix-blend-mode: multiply;
+  background-color: #fafafa17;
+}
+
+.services-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.service-card {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.5s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #333;
+}
+
+hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
