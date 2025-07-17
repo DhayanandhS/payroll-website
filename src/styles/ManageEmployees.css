@@ -3,7 +3,7 @@
   padding: 40px;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
-  min-height: 100vh;
+  min-height: 30vh !important;
 }
 
 /* Section Heading */

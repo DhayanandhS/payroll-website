@@ -10,31 +10,31 @@ import practiceIcon from '../../public/practice.svg';
 const integrations = [
   {
     icon: peopleIcon,
-    title: 'Zoho People',
+    title: 'EasyPay People',
     description: 'Take control of the complete employee journey with our cloud-based HRMS software. Enrol staff, manage work hours, and tab their leave policies.',
     link: '#',
     linkText: 'HR software integration',
   },
   {
     icon: booksIcon,
-    title: 'Zoho Books',
+    title: 'EasyPay Books',
     description: 'GST-compliant accounting software that records your payroll transactions automatically, reducing manual errors.',
     link: '#',
     linkText: 'Accounting software integration',
   },
   {
     icon: expenseIcon,
-    title: 'Zoho Expense',
+    title: 'EasyPay Expense',
     description: 'Reimburse business expenses alongside payroll. Automate travel, reporting, and expense tracking.',
     link: '#',
     linkText: 'Expense software integration',
   },
   {
     icon: practiceIcon,
-    title: 'Zoho Practice',
+    title: 'EasyPay Practice',
     description: 'Centralizes client management for accounting firms. Real-time collaboration and simplified tax management.',
     link: '#',
-    linkText: 'Explore Zoho Practice now',
+    linkText: 'Explore EasyPay Practice now',
   },
 ];
 

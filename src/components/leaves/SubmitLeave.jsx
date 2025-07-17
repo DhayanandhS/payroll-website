@@ -110,7 +110,7 @@ function SubmitLeave() {
 
   return (
     <div className="manage-employees-container">
-      <h3>Leave Request</h3>
+      <h3 className='text-black'>Leave Request</h3>
       <form onSubmit={handleSubmit} className="card p-4 shadow mb-5">
         <div className="row">
           <div className="col-md-4 mb-3">
@@ -151,32 +151,6 @@ function SubmitLeave() {
           Submit Leave
         </button>
       </form>
-
-      <h4>My Leave History</h4>
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th>Leave ID</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Reason</th>
-            <th>Status</th>
-            <th>Approved By</th>
-          </tr>
-        </thead>
-        <tbody>
-          {leaveList.map((leave) => (
-            <tr key={leave.leaveId}>
-              <td>{leave.leaveId}</td>
-              <td>{leave.fromDate}</td>
-              <td>{leave.toDate}</td>
-              <td>{leave.reason}</td>
-              <td>{leave.status}</td>
-              <td>{leave.approvedByName || 'N/A'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 }

@@ -24,21 +24,36 @@ const PayrollProcessorDashboard = () => {
     <div className="manage-employees-container ">
       <h2 className="mb-4 text-black">Payroll Processor Dashboard</h2>
 
-      <div className="btn-group mb-4" role="group">
+      <div
+        className="btn-group mb-4 bg-dark rounded overflow-hidden shadow-sm"
+        role="group"
+      >
         <button
-          className={`btn btn-outline-primary ${activeTab === 'payrolls' ? 'active' : ''}`}
+          className={`btn ${
+            activeTab === 'payrolls'
+              ? 'btn-primary'
+              : 'btn-dark text-white-50 border-0'
+          }`}
           onClick={() => setActiveTab('payrolls')}
         >
           Payrolls
         </button>
         <button
-          className={`btn btn-outline-primary ${activeTab === 'benefits' ? 'active' : ''}`}
+          className={`btn ${
+            activeTab === 'benefits'
+              ? 'btn-primary'
+              : 'btn-dark text-white-50 border-0'
+          }`}
           onClick={() => setActiveTab('benefits')}
         >
           Benefits
         </button>
         <button
-          className={`btn btn-outline-primary ${activeTab === 'timesheets' ? 'active' : ''}`}
+          className={`btn ${
+            activeTab === 'timesheets'
+              ? 'btn-primary'
+              : 'btn-dark text-white-50 border-0'
+          }`}
           onClick={() => setActiveTab('timesheets')}
         >
           Timesheets

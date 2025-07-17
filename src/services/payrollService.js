@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 // services/payrollService.js
 import axios from 'axios';
 
@@ -21,10 +22,24 @@ const addBenefit = (data) => axios.post(`${BASE_URL}/benefits`, data, getAuthHea
 const updateBenefit = (id, data) => axios.put(`${BASE_URL}/benefits/${id}`, data, getAuthHeaders());
 const deleteBenefit = (id) => axios.delete(`${BASE_URL}/benefits/${id}`, getAuthHeaders());
 
+// Timesheets
 const getAllTimesheets = () => axios.get(`${BASE_URL}/timesheets`, getAuthHeaders());
+const updateTimesheet = (id, data) => axios.put(`${BASE_URL}/timesheets/${id}`, data, getAuthHeaders()); // ✅ Added this
 
 export default {
-  getAllPayrolls, addPayroll, updatePayroll, deletePayroll,
-  getAllBenefits, addBenefit, updateBenefit, deleteBenefit,
+  // Payroll
+  getAllPayrolls,
+  addPayroll,
+  updatePayroll,
+  deletePayroll,
+
+  // Benefits
+  getAllBenefits,
+  addBenefit,
+  updateBenefit,
+  deleteBenefit,
+
+  // Timesheets
   getAllTimesheets,
+  updateTimesheet, // ✅ Make sure this is exported
 };

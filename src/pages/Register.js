@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import '../styles/Register.css';
@@ -14,7 +15,6 @@ function Register() {
   const [message, setMessage] = useState('');
 
   const roles = [
-    'ADMIN_HR',
     'EMPLOYEE',
     'PAYROLL_PROCESSOR',
     'MANAGER_SUPERVISOR',
