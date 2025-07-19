@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 // src/components/leave/SubmitLeave.jsx
 import React, { useEffect, useState } from 'react';
 import leaveService from '../../services/leaveService';

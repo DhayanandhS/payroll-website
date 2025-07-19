@@ -206,25 +206,25 @@ function Home() {
         <div className="metrics-grid">
           <div className="metric-box">
             <h3>
-              <CountUp end={10000} duration={6} separator="," />
+              <CountUp end={500} duration={10} separator="," />
             </h3>
             <p>Payrolls Processed</p>
           </div>
           <div className="metric-box">
             <h3>
-              <CountUp end={1500} duration={6} separator="," />
+              <CountUp end={150} duration={10} separator="," />
             </h3>
             <p>Employees Served</p>
           </div>
           <div className="metric-box">
             <h3>
-              <CountUp end={120} duration={6} />
+              <CountUp end={120} duration={10} />
             </h3>
             <p>Companies Onboarded</p>
           </div>
           <div className="metric-box">
             <h3>
-              <CountUp end={99.9} duration={6} decimals={1} />%
+              <CountUp end={99.9} duration={10} decimals={1} />%
             </h3>
             <p>Accuracy Rate</p>
           </div>
